@@ -82,7 +82,7 @@ async function createUser(firstName, lastName, phone, gender, email, address, pa
         throw '$ email is not right2'
     }
     let mya = net.indexOf('@')
-    if ((net.length-4) - (mya+1) -4 < 4){
+    if ((net.length-4) - (mya+1) < 4){
         throw '$ email is not right3'
     }
     let myusmail = email.split('@')
@@ -106,11 +106,13 @@ async function createUser(firstName, lastName, phone, gender, email, address, pa
     }
 //to lower case
 
-    const restarurantsCollection = await users();
+    const users1 = await users();
     const hash = await bcrypt.hash(password,saltRounds)
     let myaftertestemail = email.split('@')
     myaftertestemail[0] = myaftertestemail[0].toLowerCase()
     let mynewemail = myaftertestemail[0]+'@'+myaftertestemail[1]
+    const myusers = await users1.findOne({ email: mynewemail });
+    if (myusers !== null) throw 'have users with same email';
     let newusers = {
         firstName: firstName,
         lastName: lastName,
@@ -126,7 +128,7 @@ async function createUser(firstName, lastName, phone, gender, email, address, pa
         likeevents: [],
       };
 
-      const insertInfo = await restarurantsCollection.insertOne(newusers);
+      const insertInfo = await users1.insertOne(newusers);
       if (insertInfo.insertedCount === 0) throw '$ Could not add new restaurants';
   
       const newId = insertInfo.insertedId;
@@ -163,7 +165,7 @@ function myDBfunction(id) {
     return parsedId
 }
 
-async function get(email,password){
+async function checkUsers(email,password){
 
     if (!email) throw 'You must provide an email to search for get';
     if ( !password){
@@ -188,7 +190,7 @@ async function get(email,password){
         throw '$ email is not right2'
     }
     let mya = net.indexOf('@')
-    if ((net.length-4) - (mya+1) -4 < 4){
+    if ((net.length-4) - (mya+1)< 4){
         throw '$ email is not right3'
     }
     let myusmail = email.split('@')
@@ -210,7 +212,7 @@ async function get(email,password){
     let mynewemail = myaftertestemail[0]+'@'+myaftertestemail[1]
     
     const users1 = await users();
-    const myusers = await users1.findOne({ _email: mynewemail });
+    const myusers = await users1.findOne({ email: mynewemail });
     if (myusers === null) throw 'No users with that email';
     let compareToMerlin = false
     compareToMerlin = await bcrypt.compare(password, myusers['password']);
@@ -223,9 +225,12 @@ async function get(email,password){
     return myusers;
 }
 
+// createUser('Bingzhen','Li','319-429-5274','male','tOny153265964@gmail.com','333 rever st','123456') 
+// let my = checkUsers('tony153265964@gmail.com','123456')
+// console.log(my)
 
 module.exports = {
     createUser,
     getAll,
-    get,
+    checkUsers,
 };
