@@ -1,0 +1,124 @@
+
+<body class="create-page">
+
+
+	<!-- Begin page content -->
+	<main class="container">
+		<div class="row big-font">
+			<div class="col-md-10 col-lg-8">
+				<header class="title mt-3 mb-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create New Event</header>
+				<br><br><br>
+				<form class="needs-validation ml-1" novalidate autocomplete="off" method="POST" action="/create-event" autocomplete="off">
+					<div class="form-group mt-2">
+						<label for="title" id=title> Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+						</label>
+						<input type="text" name="title" class="ghost-round2" id="event-name" placeholder="         Event name" required> 
+						<br>
+						<br>
+					</div> 
+
+					<div class="form-group mt-2">
+						<label for = "category">Category: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                        <select class="ghost-round2" name="category" type="text" name="displayValue" id="category" 
+                        placeholder="add/select a value" onfocus="this.select()" > 
+						<option>Select a Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                        <option value="Party">Party</option>
+                        <option value="Get-Together">Get-Together</option>
+                         <option value="Conference">Conference</option>
+                         <option value="workshop">workshop</option>
+                         <option value="Expo">Expo</option>
+                          <option value="Networking session">Networking session</option>
+                         </select> 
+						 </label>
+						 <br>
+						<br>
+					</div> 
+
+
+
+					<div class="form-group">
+						<label for="date" type = "date">Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+						<input class="ghost-round2" name="date" id="date" placeholder="        Event date" type = "date"required>
+						<br>
+						<br>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="timestart">Start Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input type="time" class="ghost-round2" name="timestart" id="timestart" placeholder="       Start time" required>
+							<br>
+						<br>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="endtime">End Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input type="time" class="ghost-round2" name="endtime" id="endtime" placeholder="        End time" required>
+							<br>
+						<br>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="address">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+						<input type="text" class="ghost-round2" name="address" id="address" placeholder="          Address" required>
+						<br>
+						<br>
+					</div>
+					
+                   <div class="form-group">
+						<label for="city">City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+						<input type="text" class="ghost-round2" name="city" id="city" placeholder="          state" required>
+						<br>
+						<br>
+					</div>
+
+					<div class="form-group">
+						<label for="state">State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+						<input type="text" class="ghost-round2" name="state" id="state" placeholder="          state" required>
+						<br>
+						<br>
+					</div>
+
+                   <div class="form-group col-lg-5">
+							<label for="ticketcapacity">Ticket Capacity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input type="number" class="ghost-round2" name="ticketcapacity" id="ticketcapacity" min="1" placeholder="      Number of seats" required>
+							<br>
+						<br>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-lg-5">
+							<label for="price">Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input type="number" class="ghost-round2" name="price" id="price" min="0" placeholder="        Price">
+							
+							<small class="form-text text-muted">
+								(leave empty if free.)
+							</small> 
+							<br>
+						<br>
+						</div>
+						
+                   <div class="form-group col-lg-5">
+							<label for="description">Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input type="text" class="ghost-round2" name="description" id="description" min="1" placeholder="      Description" required>
+							<br>
+						<br>
+						</div>
+					</div>
+					
+						
+
+					<div><input class='ghost-round1 full-width' type="submit" value="create-event"></div> 
+				</form>
+			</div>
+		</div>
+	</main>
+
+
+
+
+	
+</body> 

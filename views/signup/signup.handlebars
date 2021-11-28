@@ -1,0 +1,31 @@
+<main>
+ <br><br><br><br><br><br><br><br>
+
+<div class='bold-line'></div>
+<div class='container'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <h1 class = 'welcome'> EVENTBRITE </h1>
+      <div class='subtitle'>create an user account here</div>
+      <br>
+      <form method="POST" action="/signup" autocomplete="off">
+      <div class='input-fields'>
+        <input type='text' name="username" placeholder='username' class='input-line full-width'>
+        <input type='email' name="email" placeholder='E-mail' class='input-line full-width'>
+        <input type='password' name="password" placeholder='password' class='input-line full-width'>
+      </div>
+      <br>
+      <br>
+      <div><input class='ghost-round full-width'type="submit" value="Create Account"></div> 
+      </form>
+      <div><button class='ghost-round full-width' value = "login" name="login" Placeholder = "Login"><a href = "/" class="login">Login</a></button></div>
+    </div>
+  </div>
+</div>
+
+{{#if error}}
+<p> {{ error }}</p>
+{{/if}}
+
+</main>
